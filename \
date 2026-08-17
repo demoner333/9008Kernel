@@ -8,8 +8,6 @@ extern printchar_xy
 extern print_string_xy
 extern init_idt
 extern print_string
-extern wait_read_key
-extern wait_ascii_key
 
 global kernel_main
 
@@ -18,7 +16,7 @@ section .text
 kernel_main:
     call init_idt
     call clearscreen
-    mov edx,0x07 
+    mov edx,0x0f 
     mov esi,23
     mov eax,main1_string
     call print_string
@@ -31,23 +29,16 @@ kernel_main:
     mov esi,10
     call print_string
     mov edx,0x0e
-    mov esi,11
+    mov esi,12
     mov eax,kernel_name
     call print_string
-    mov edx,0x07 
+    mov edx,0x0f 
     mov eax,'|'
     call printchar
     mov eax,'\n'
     call printchar
     mov esi,23
     mov eax,main1_string
-    call print_string
-    mov eax,'\n'
-    call printchar
-.loop:
-    call wait_ascii_key
-    call printchar
-    jmp .loop
     ret
 
 section .data

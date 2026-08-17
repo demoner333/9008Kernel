@@ -10,7 +10,8 @@ ASM_SRCS = \
 	kernel/idt/idt.nasm \
 	kernel/idt/isr.nasm \
 	kernel/idt/syscall.nasm \
-	drivers/VGA/vga.nasm
+	drivers/VGA/vga.nasm \
+	drivers/keyboard-PS2/keyboard.nasm
 
 ASM_OBJS = $(ASM_SRCS:.nasm=.o)
 OBJS     = $(ASM_OBJS)
